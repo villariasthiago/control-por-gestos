@@ -1,0 +1,16 @@
+# Dependencias descargadas por scripts/vendor.sh (las baja el workflow en cada deploy)
+vendor/
+_site/
+
+# ROMs: NUNCA al repo. (No se puede ignorar *.md porque OutRun usa esa extensión
+# igual que los README: el workflow lo detecta por firma binaria.)
+roms/
+*.nes
+*.gen
+*.smd
+*.bin
+*.zip
+*.7z
+
+node_modules/
+.DS_Store

@@ -1,0 +1,11 @@
+{
+  "name": "gestos-retro",
+  "private": true,
+  "type": "module",
+  "description": "OutRun y Star Force controlados con gestos de la mano, en el navegador",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "vendor": "bash scripts/vendor.sh",
+    "dev": "python3 -m http.server 8000"
+  }
+}

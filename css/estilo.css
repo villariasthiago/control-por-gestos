@@ -1,0 +1,136 @@
+:root {
+  --fondo: #07070d;
+  --panel: #12121c;
+  --borde: #23233a;
+  --texto: #e8e8f2;
+  --tenue: #8a8aa3;
+  --cyan: #00e5ff;
+  --verde: #00ff66;
+  --naranja: #ffb300;
+  --fucsia: #ff0055;
+  --radio: 14px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: radial-gradient(1200px 600px at 50% -10%, #1a0f2e 0%, var(--fondo) 60%);
+  color: var(--texto);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+}
+[hidden] { display: none !important; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  padding: .5em 1em; border-radius: 10px; border: 1px solid var(--borde);
+  background: #1b1b2b; color: var(--texto); font: inherit; font-weight: 600;
+  text-decoration: none; cursor: pointer; user-select: none;
+  transition: transform .08s, border-color .15s, background .15s;
+}
+.btn:hover { border-color: var(--cyan); }
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.btn.apagado { opacity: .45; }
+.btn-grande {
+  font-size: 1.25rem; padding: .7em 1.6em; border: 0;
+  background: linear-gradient(135deg, var(--cyan), #7c4dff); color: #05050a;
+  box-shadow: 0 0 24px rgba(0, 229, 255, .35);
+}
+.btn-grande[aria-disabled="true"] { opacity: .35; pointer-events: none; box-shadow: none; }
+.btn-sec { background: transparent; }
+.btn-link { background: none; border: 0; color: var(--tenue); text-decoration: underline; padding: .2em .4em; }
+
+/* ---------- Menú ---------- */
+.pagina-menu { padding: 0 20px 40px; }
+.cabecera { text-align: center; padding: 48px 0 24px; max-width: 760px; margin: 0 auto; }
+.cabecera h1 {
+  margin: 0; font-size: clamp(2.2rem, 6vw, 3.6rem); letter-spacing: .02em;
+  font-family: Impact, "Arial Black", sans-serif; text-transform: uppercase;
+}
+.cabecera h1 span { color: var(--cyan); text-shadow: 0 0 18px rgba(0, 229, 255, .6); }
+.cabecera p { color: var(--tenue); margin: .6em 0 0; }
+
+#mensaje {
+  max-width: 760px; margin: 0 auto 16px; padding: 12px 16px; border-radius: 10px;
+  background: rgba(255, 179, 0, .12); border: 1px solid rgba(255, 179, 0, .5); color: var(--naranja);
+}
+
+.juegos {
+  display: grid; gap: 20px; max-width: 980px; margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.juego {
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 22px; border-radius: var(--radio); background: var(--panel); border: 1px solid var(--borde);
+  position: relative; overflow: hidden;
+}
+.juego::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--fucsia), var(--naranja));
+}
+.juego[data-juego="starforce"]::before { background: linear-gradient(90deg, var(--cyan), var(--verde)); }
+.juego-cab { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.juego-titulo { margin: 0; font-family: Impact, "Arial Black", sans-serif; font-size: 2rem; letter-spacing: .03em; }
+.juego-sistema { color: var(--tenue); font-size: .85rem; white-space: nowrap; }
+.juego-gestos { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.juego-gestos .ico { display: inline-block; width: 1.8em; }
+.juego-rom { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rom-estado { flex: 1; color: var(--tenue); font-size: .9rem; overflow-wrap: anywhere; }
+.rom-estado.ok { color: var(--verde); }
+.rom-aviso { margin: 0; font-size: .85rem; color: var(--naranja); }
+.rom-aviso.error { color: var(--fucsia); }
+.juego-jugar { align-self: stretch; }
+
+.pasos { max-width: 760px; margin: 36px auto 0; color: var(--tenue); }
+.pasos h2 { color: var(--texto); font-size: 1.1rem; }
+.pasos ol { padding-left: 1.2em; }
+.legal { font-size: .78rem; opacity: .8; margin-top: 18px; }
+
+/* ---------- Juego ---------- */
+.pagina-juego { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
+.barra {
+  display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+  background: rgba(10, 10, 18, .9); border-bottom: 1px solid var(--borde); flex: none;
+}
+.barra h1 { flex: 1; margin: 0; font-size: 1rem; font-weight: 600; color: var(--tenue);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barra .acciones { display: flex; gap: 6px; }
+.barra .btn { padding: .35em .75em; }
+
+#escenario { position: relative; flex: 1; min-height: 0; background: #000; }
+#escenario:fullscreen { width: 100vw; height: 100vh; }
+#juego { position: absolute; inset: 0; }
+#hud { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+
+#estado, #aviso {
+  position: absolute; left: 50%; transform: translateX(-50%); z-index: 8;
+  padding: 10px 16px; border-radius: 10px; max-width: min(92%, 640px); text-align: center;
+  background: rgba(10, 10, 18, .9); border: 1px solid var(--borde);
+}
+#estado { bottom: 24px; }
+#estado[data-tipo="error"] { border-color: var(--fucsia); color: var(--fucsia); }
+#aviso { top: 110px; border-color: var(--naranja); color: var(--naranja); }
+
+#portada {
+  position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; padding: 20px;
+  background: radial-gradient(800px 500px at 50% 40%, rgba(124, 77, 255, .18), rgba(0, 0, 0, .92));
+}
+.tarjeta-portada {
+  text-align: center; max-width: 520px; padding: 28px; border-radius: var(--radio);
+  background: rgba(18, 18, 28, .92); border: 1px solid var(--borde);
+}
+.tarjeta-portada .sub { margin: 0 0 14px; color: var(--cyan); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .85rem; }
+#instrucciones { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; text-align: left; }
+#instrucciones li {
+  display: grid; grid-template-columns: 2.2em 1fr auto; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 10px; background: rgba(255, 255, 255, .04);
+}
+#instrucciones .ico { font-size: 1.5rem; }
+#instrucciones li span:last-child { color: var(--naranja); font-weight: 700; }
+.nota { color: var(--tenue); font-size: .82rem; margin: 12px 0; }
+
+@media (max-width: 600px) {
+  .barra h1 { display: none; }
+}

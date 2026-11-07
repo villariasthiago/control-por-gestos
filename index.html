@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control por gestos · OutRun y Star Force</title>
+  <meta name="description" content="Jugá OutRun y Star Force con la mano frente a la cámara. Todo corre en tu navegador.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9C%8B%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="pagina-menu">
+  <header class="cabecera">
+    <h1>Control por <span>gestos</span></h1>
+    <p>Jugá clásicos retro con la mano frente a la cámara. Nada se instala y el video no sale de tu computadora.</p>
+  </header>
+
+  <div id="mensaje" hidden></div>
+
+  <main class="juegos" id="juegos"></main>
+
+  <section class="pasos">
+    <h2>Cómo se juega</h2>
+    <ol>
+      <li>Elegí el archivo de la ROM de cada juego (una sola vez: queda guardada en este navegador).</li>
+      <li>Tocá <b>Jugar</b> y permití el uso de la cámara.</li>
+      <li>Poné la mano a unos 50 cm de la cámara, con buena luz de frente.</li>
+    </ol>
+    <p class="legal">Este sitio no incluye ni distribuye juegos. Cada jugador usa su propia copia de la ROM, que se procesa solo en su navegador. OutRun © SEGA. Star Force © Tecmo / Hudson Soft.</p>
+  </section>
+
+  <template id="tpl-juego">
+    <article class="juego">
+      <div class="juego-cab">
+        <h2 class="juego-titulo"></h2>
+        <span class="juego-sistema"></span>
+      </div>
+      <ul class="juego-gestos"></ul>
+      <div class="juego-rom">
+        <span class="rom-estado">Sin ROM cargada</span>
+        <label class="btn btn-sec">
+          Elegir ROM…
+          <input type="file" class="rom-input" hidden>
+        </label>
+        <button class="btn btn-link rom-borrar" hidden>Quitar</button>
+      </div>
+      <p class="rom-aviso" hidden></p>
+      <a class="btn btn-grande juego-jugar" aria-disabled="true">▶ Jugar</a>
+    </article>
+  </template>
+
+  <script type="module" src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Verificar que no haya ROMs en el repo
+        run: python3 scripts/verificar_sin_roms.py
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Tests de gestos
+        run: npm test
+
+      - name: Descargar EmulatorJS, cores, MediaPipe y modelo
+        run: bash scripts/vendor.sh
+
+      - name: Armar sitio
+        run: |
+          mkdir -p _site
+          cp -r index.html juego.html css js vendor _site/
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

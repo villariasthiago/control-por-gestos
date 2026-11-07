@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jugando · Control por gestos</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9C%8B%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="pagina-juego">
+  <header class="barra">
+    <a class="btn" href="index.html" title="Volver al menú (Esc)">← Menú</a>
+    <h1 id="titulo"></h1>
+    <div class="acciones">
+      <button class="btn" id="btn-start" title="Botón START del joystick">START</button>
+      <button class="btn" id="btn-camara" title="Mostrar u ocultar la cámara">📷</button>
+      <button class="btn" id="btn-hud" title="Mostrar u ocultar el HUD">🎯</button>
+      <button class="btn" id="btn-pantalla" title="Pantalla completa">⛶</button>
+    </div>
+  </header>
+
+  <main id="escenario">
+    <div id="juego"></div>
+    <canvas id="hud" aria-hidden="true"></canvas>
+    <video id="video" playsinline muted hidden></video>
+
+    <div id="estado" hidden></div>
+    <div id="aviso" hidden></div>
+
+    <section id="portada">
+      <div class="tarjeta-portada">
+        <p class="sub">Control por gestos con la cámara</p>
+        <ul id="instrucciones"></ul>
+        <p class="nota">La imagen de la cámara se procesa en esta computadora y no se envía a ningún lado.</p>
+        <button id="btn-jugar" class="btn btn-grande">▶ Jugar</button>
+        <p class="nota">Teclado: flechas, Z, X, Enter (START). Esc vuelve al menú.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/juego.js"></script>
+</body>
+</html>
