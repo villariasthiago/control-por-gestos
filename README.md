@@ -1,24 +1,28 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Control por gestos: OutRun y Star Force" width="100%">
+# ✋ Control por gestos
+
+### OutRun y Star Force, jugados con la mano frente a la cámara
 
 <br>
 
-# 🕹️ &nbsp;JUGAR AHORA&nbsp; 🕹️
-
-### 👉 [**villariasthiago.github.io/control-por-gestos**](https://villariasthiago.github.io/control-por-gestos/) 👈
-
-<a href="https://villariasthiago.github.io/control-por-gestos/"><img src="https://img.shields.io/badge/%E2%96%B6%20ABRIR%20EL%20JUEGO-ff0055?style=for-the-badge&labelColor=1a0f2e" alt="Abrir el juego" height="56"></a>
+<a href="https://villariasthiago.github.io/control-por-gestos/">
+  <img src="https://img.shields.io/badge/%E2%96%B6%20%20JUGAR%20AHORA-OutRun%20%C2%B7%20Star%20Force-ff0055?style=for-the-badge&labelColor=1a0f2e" alt="Jugar ahora" height="56">
+</a>
 
 <br><br>
 
-![Sin instalar nada](https://img.shields.io/badge/sin%20instalar-nada-00e5ff?style=flat-square&labelColor=07070d)
-![Corre en el navegador](https://img.shields.io/badge/corre%20en-tu%20navegador-00ff66?style=flat-square&labelColor=07070d)
-![Video privado](https://img.shields.io/badge/tu%20video-no%20sale%20de%20tu%20PC-ffb300?style=flat-square&labelColor=07070d)
+🔗 **[villariasthiago.github.io/control-por-gestos](https://villariasthiago.github.io/control-por-gestos/)**
+
+**👆 Hacé click, permití la cámara y jugá, sin instalar nada 👆**
+
+<br>
+
+![Sin instalar](https://img.shields.io/badge/sin%20instalar-nada-00e5ff?style=flat-square&labelColor=07070d)
+![Navegador](https://img.shields.io/badge/corre%20en-tu%20navegador-00ff66?style=flat-square&labelColor=07070d)
+![Privacidad](https://img.shields.io/badge/tu%20video-no%20sale%20de%20tu%20PC-ffb300?style=flat-square&labelColor=07070d)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10.35-7c4dff?style=flat-square&labelColor=07070d)
 ![EmulatorJS](https://img.shields.io/badge/EmulatorJS-4.2.3-ff0055?style=flat-square&labelColor=07070d)
-
-**Poné la mano frente a la cámara y jugá. Sin Python, sin RetroArch, sin descargas.**
 
 </div>
 
